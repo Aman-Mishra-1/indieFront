@@ -10,9 +10,6 @@ const FreelancerRoutes = lazy(() => import("@/routes/FreelancerRoutes"));
 const ClientRoutes = lazy(() => import("@/routes/ClientRoutes"));
 const AdminRoutes = lazy(() => import("@/routes/AdminRoutes"));
 
-
-
-
 const App = () => {
   useEffect(() => {
     console.log("socket");
@@ -34,17 +31,15 @@ const App = () => {
   return (
     <ThemeProvider>
       <Toaster position="top-right" reverseOrder={false} />
-      <Router>
-        <Scroll />
-        <Suspense fallback={<Spinner />}>
-          <Routes>
-            <Route path="/*" element={<AuthRoutes />} />
-            <Route path="/freelancer/*" element={<FreelancerRoutes />} />
-            <Route path="/client/*" element={<ClientRoutes />} />
-            <Route path="/admin/*" element={<AdminRoutes />} />
-          </Routes>
-        </Suspense>
-      </Router>
+      <Scroll />
+      <Suspense fallback={<Spinner />}>
+        <Routes>
+          <Route path="/*" element={<AuthRoutes />} />
+          <Route path="/freelancer/*" element={<FreelancerRoutes />} />
+          <Route path="/client/*" element={<ClientRoutes />} />
+          <Route path="/admin/*" element={<AdminRoutes />} />
+        </Routes>
+      </Suspense>
     </ThemeProvider>
   );
 };
